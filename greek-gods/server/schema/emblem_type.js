@@ -3,7 +3,6 @@ const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } = graphql;
 const Emblem = mongoose.model("emblem");
 
-
 const EmblemType = new GraphQLObjectType({
   name: "EmblemType",
   fields: () => ({

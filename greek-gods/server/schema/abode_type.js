@@ -9,6 +9,7 @@ const AbodeType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    coordinates: { type: GraphQLString },
     gods: {
       // we are requiring the GodType here inside the thunk
       // to get around the problem of circular dependencies
@@ -19,7 +20,7 @@ const AbodeType = new GraphQLObjectType({
         // preforming this query on
         return Abode.findById(parentValue.id)
           .populate("gods")
-          .then(emblem => emblem.gods);
+          .then(abode => abode.gods);
       }
     }
   })
